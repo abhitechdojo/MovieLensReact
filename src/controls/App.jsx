@@ -12,6 +12,7 @@ class App extends React.Component {
 		var messageNodes = this.state.messages.map((message) => {
 			return (<div key={message.id}>{message.text}</div>);
 		});
+		debugger;
 		return (<div>{messageNodes}</div>);
 	}
 }
