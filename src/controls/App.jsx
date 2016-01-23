@@ -4,7 +4,7 @@ class App extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			messages : [{id: 1, text: 'HI'}, {id: 2, text: 'Hello'}]
+			messages : [{id: 1, text: 'Hi'}, {id: 2, text: 'Hello'}, {id: 3, text: 'World'}]
 		};
 	}
 
@@ -12,7 +12,6 @@ class App extends React.Component {
 		var messageNodes = this.state.messages.map((message) => {
 			return (<div key={message.id}>{message.text}</div>);
 		});
-		debugger;
 		return (<div>{messageNodes}</div>);
 	}
 }
