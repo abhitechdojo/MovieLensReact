@@ -1,7 +1,7 @@
 module.exports = {
 	entry : {
 		main: [
-			'script1.js', 'script2.js'
+			'./src/main.js'
 		]
 	},
 	output : {
@@ -14,12 +14,9 @@ module.exports = {
 				"exclude": /node_modules/,
 				loader: 'babel',
 				query: {
-        			presets: ['es2015']
+        			presets: ['es2015', 'react']
       			}				
 			}
 		]
-	},
-    resolve: {
-        extensions: ['', '.js', '.jsx']
-    }	
+	}
 }
