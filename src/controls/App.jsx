@@ -1,15 +1,15 @@
 import React from 'react';
 import mui from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-let ThemeManager = new mui.Styles.ThemeManager();
-let Colors = mui.Styles.Colors;
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import Colors from 'material-ui/lib/styles/colors';
+import MyTheme from './theme.js';
 
 injectTapEventPlugin();
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			messages : [{id: 1, text: 'Hi'}, {id: 2, text: 'Hello'}, {id: 3, text: 'World'}, {id: 4, text: 'test'}]
 		};
@@ -17,18 +17,19 @@ class App extends React.Component {
 
     getChildContext() {
         return {
-            stores: this.props.stores,
-            muiTheme: ThemeManager.getCurrentTheme()
+            muiTheme: ThemeManager.getMuiTheme(MyTheme)
         };
     }
 
 	componentWillMount() {
-		ThemeManager.setPalette({
-			primary1Color: Colors.blue500
+		let newMuiTheme = this.state.muiTheme;
+		this.setState({
+			muiTheme: newMuiTheme,
 		});		
 	}
 
 	render() {
+
 		var messageNodes = this.state.messages.map((message) => {
 			return (<div key={message.id}>{message.text}</div>);
 		});
@@ -37,7 +38,6 @@ class App extends React.Component {
 }
 
 App.childContextTypes = {
-    stores: React.PropTypes.object,
     muiTheme: React.PropTypes.object
 };
 
