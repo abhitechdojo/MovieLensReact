@@ -6,12 +6,12 @@ module.exports = {
 	entry : {
 		main: [
 			'webpack-dev-server/client?http://localhost:8080',
-			'webpack/hot/ony-dev-server',
+			'webpack/hot/only-dev-server',
 			'./src/main.js'
 		]
 	},
 	output : {
-		filename: 'public/[name].js',
+		filename: '[name].js',
 		path: path.join(__dirname, 'public'),
 		publicPath: '/public/'
 	},
@@ -24,10 +24,12 @@ module.exports = {
 			{
 				test: /\.jsx?$/,
 				include: path.join(__dirname, 'src'),
-				loader: 'react-hot!babel',
-				query: {
-        			presets: ['es2015', 'react']
-      			}				
+				loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react']			
+			},
+			{
+				test: /\.scss$/,
+				include: path.join(__dirname, 'src'),
+				loaders: ['css', 'sass']
 			}
 		]
 	}
