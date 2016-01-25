@@ -34,7 +34,23 @@ class App extends React.Component {
 		var messageNodes = this.state.messages.map((message) => {
 			return (<div key={message.id}>{message.text}</div>);
 		});
-		return (<div><div><DimensionPicker dimension="genre"/></div><div>{messageNodes}</div></div>);
+
+		return (
+			<div>
+				<div>
+					<DimensionPicker dimension="occupation"/>
+				</div>
+				<div>
+					<DimensionPicker dimension="genre"/>
+				</div>
+				<div>
+					<DimensionPicker dimension="gender"/>
+				</div>
+				<div>
+					{messageNodes}
+				</div>
+			</div>
+		);
 	}
 }
 

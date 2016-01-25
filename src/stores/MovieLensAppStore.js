@@ -9,12 +9,12 @@ var GENRE_CHANGE_EVENT = "genreChange";
 var GENDER_CHANGE_EVENT = "genderChange";
 
 var _store = {
-	occupationList: ['All', 'Engineer', 'Doctor', 'Scientist'],
+	occupationList: [{id: 0, val: 'All'}, {id: 1, val: 'Engineer'}, {id: 2, val: 'Doctor'}, {id: 3, val: 'Scientist'}],
 	currentOccupation: 'All',
-	genderList : ['All', 'M', 'F'],
+	genderList : [{id: 0, val: 'All'}, {id: 1, val: 'M'}, {id: 2, val: 'F'}],
 	currentGender: 'All',
-	genreList : ['Comedy', 'Action'],
-	currentGenre: 'Action',
+	genreList : [{id: 0, val: 'All'}, {id: 1, val: 'Comedy'}, {id: 2, val: 'Action'}],
+	currentGenre: 'All',
 	movieList: []
 }
 

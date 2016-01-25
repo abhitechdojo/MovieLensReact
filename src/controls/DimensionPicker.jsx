@@ -6,10 +6,6 @@ class DimensionPicker extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = { items: [], currentItem: '' };
-	}
-
-	getInitialState() {
 		this.state = {
 			items: MovieLensAppStore.getAttributes(this.props.dimension),
 			currentItem : MovieLensAppStore.getCurrentAttribute(this.props.dimension)
@@ -22,12 +18,9 @@ class DimensionPicker extends React.Component {
 
 	render() {
 		var optionNodes = this.state.items.map((item) => {
-			if (item === this.state.currentItem) 
-				return(<option value="{item}" selected>{item}</option>)				
-			else
-				return(<option value="{item}">{item}</option>)
+			return(<option key={item.id} value={item.val}>{item.val}</option>)
 		});
-		return(<div><select onchange="onSelectionChange">{optionNodes}</select></div>);
+		return(<div><select onchange="onSelectionChange" defaultValue={this.state.currentItem}>{optionNodes}</select></div>);
 	}
 
 }
