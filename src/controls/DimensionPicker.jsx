@@ -10,7 +10,7 @@ class DimensionPicker extends React.Component {
 	}
 
 	getInitialState() {
-		return {
+		this.state = {
 			items: MovieLensAppStore.getAttributes(this.props.dimension),
 			currentItem : MovieLensAppStore.getCurrentAttribute(this.props.dimension)
 		};
