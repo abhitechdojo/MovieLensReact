@@ -4,6 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 import Colors from 'material-ui/lib/styles/colors';
 import MyTheme from './theme.js';
+import DimensionPicker from "./DimensionPicker.jsx"
 
 injectTapEventPlugin();
 
@@ -33,7 +34,7 @@ class App extends React.Component {
 		var messageNodes = this.state.messages.map((message) => {
 			return (<div key={message.id}>{message.text}</div>);
 		});
-		return (<div>{messageNodes}</div>);
+		return (<div><div><DimensionPicker dimension="genre"/></div><div>{messageNodes}</div></div>);
 	}
 }
 
