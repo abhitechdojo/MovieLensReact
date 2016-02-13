@@ -1,5 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './controls/App.jsx';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
+import App from './Reports/App.jsx';
+import MovieLensAppStore from './stores/MovieLensAppStore';
 
-ReactDOM.render(<App />, document.getElementById('container'));
+render (
+	<Provider store={MovieLensAppStore}>
+		<App />
+	</Provider>,
+	document.getElementById('container')
+	)
