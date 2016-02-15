@@ -8,21 +8,29 @@ export const TABLE_SORTED = "TABLE_SORTED";
 export function requestTableItems(filter) {
 	return {
 		type: REQUEST_TABLE_ITEMS,
-		isLoading: true
+		tableIsLoading: true
 	}
 }
 
 export function tableSorted(sortedArray) {
 	return {
 		type: TABLE_SORTED,
-		data: sortedArray
+		tableData: sortedArray
 	}
 }
 
-export function itemsReceived(data) {
+export function itemsReceivedSuccess(data) {
 	return {
-		type: TABLE_ITEMS_RECEIVED,
-		data: data,
-		isLoading: false
+		type: TABLE_ITEMS_RECEIVE_SUCCESS,
+		tableData: data,
+		tableIsLoading: false,
+	}
+}
+
+export function itemsReceivedError(error) {
+	return {
+		type: TABLE_ITEMS_RECEIVE_ERROR,
+		isLoading: false,
+		tableError: error
 	}
 }

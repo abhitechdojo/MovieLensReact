@@ -1,19 +1,18 @@
-import {PropTypes, React, Component} from 'react';
+import React, {PropTypes} from 'react';
 import Select from 'react-select';
 
-class DimensionPicker extends Component {
-	componentDidMount() {
-		const {onLoad} = this.props;
-		onLoad();
-	}
-	render() {
-		const {onChange, attributeList, currentAttribute} = this.props;
-		return (
-			<div>
-				<Select value={currentAttribute} options={attributeList} onChange={onChange} />
-			</div>
-		)		
-	}
+const DimensionPicker = ({dimensionName, onChange, attributeList, currentAttribute}) => {
+	return (
+		<div>
+			<Select 
+				value={currentAttribute} 
+				options={attributeList} 
+				onChange={e => 
+					onChange(e.value)
+				} 
+			/>
+		</div>		
+	)
 }
 
 DimensionPicker.propTypes = {

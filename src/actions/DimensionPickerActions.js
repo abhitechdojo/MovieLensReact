@@ -1,44 +1,36 @@
 import fetch from 'isomorphic-fetch';
 
 export const REQUEST_DIMENSION_ATTRIBUTES = "REQUEST_DIMENSION_ATTRIBUTES";
-export const DIMENSION_ATTRIBUTES_RECEIVE_SUCCESS = "DIMENSION_ATTRIBUTES_RECEIVE_SUCCESS";
-export const DIMENSION_ATTRIBUTES_RECEIVE_ERROR = "DIMENSION_ATTRIBUTES_RECEIVE_ERROR";
+export const DIMENSION_ATTRIBUTES_RECEIVED_SUCCESS = "DIMENSION_ATTRIBUTES_RECEIVED_SUCCESS";
+export const DIMENSION_ATTRIBUTES_RECEIVED_ERROR = "DIMENSION_ATTRIBUTES_RECEIVED_ERROR";
 export const ATTRIBUTE_SELECTION_CHANGED = "ATTRIBUTE_SELECTION_CHANGED";
-export const SET_DIMENSION_NAME = "SET_DIMENSION_NAME";
 
 export function requestDimensionAttributes(dimensionName) {
 	return {
 		type: REQUEST_DIMENSION_ATTRIBUTES,
-		isLoading: true
+		pickerIsLoading: true
 	}
 }
 
 export function receivedDimensionAttributesSuccess(data) {
 	return {
-		type: DIMENSION_ATTRIBUTES_RECEIVE_SUCCESS,
-		data: data,
-		isLoading: false
+		type: DIMENSION_ATTRIBUTES_RECEIVED_SUCCESS,
+		attributeList: data,
+		pickerIsLoading: false
 	}
 }
 export function receivedDimensionAttributesError(error) {
 	return {
-		type: DIMENSION_ATTRIBUTES_RECEIVE_ERROR,
-		error: error,
-		isLoading: true
+		type: DIMENSION_ATTRIBUTES_RECEIVED_ERROR,
+		pickerError: error,
+		pickerIsLoading: false
 	}
 }
 
 export function updateAttributeSelection(selected) {
 	return {
 		type: ATTRIBUTE_SELECTION_CHANGED,
-		data: selected
-	}
-}
-
-export function setDimensionName(dimensionName) {
-	return {
-		type: SET_DIMENSION_NAME,
-		data: dimensionName
+		currentAttribute: selected
 	}
 }
 

@@ -4,7 +4,9 @@ import TableControl from './controls/TableControl.jsx';
 import TableControlActions from '../actions/TableControlActions'
 
 const mapStateToProps = (state) => {
-	data: state.tableData
+    return {
+	   tableData: state.tableData
+    }
 }
 
 const mapDispatchToProps = (state) => {

@@ -1,4 +1,4 @@
-import {PropTypes, React} from 'react';
+import React, {PropTypes} from 'react';
 
 const TableControl = (data) => (
 	<table>
@@ -22,7 +22,7 @@ const TableControl = (data) => (
 	)
 
 TableControl.propTypes = {
-	data: PropTypes.arrayOf(
+	tableData: PropTypes.arrayOf(
 		PropTypes.shape({
 			genre: PropTypes.string.isRequired,
 			title: PropTypes.string.isRequired,

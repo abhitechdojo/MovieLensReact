@@ -4,9 +4,9 @@ import TableControl from '../containers/TableControlContainer';
 
 const App = () => (
 	<div>
-	<DimensionPicker dimensionName="Genre"/>
-	<TableControl />
+    	<DimensionPicker dimensionName="Genre"/>
+    	<TableControl />
 	</div>
-	)
+)
 
 export default App;
