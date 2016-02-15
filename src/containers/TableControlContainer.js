@@ -5,7 +5,7 @@ import TableControlActions from '../actions/TableControlActions'
 
 const mapStateToProps = (state) => {
     return {
-	   tableData: state.tableData
+	   tableData: state.DataTable.tableData
     }
 }
 

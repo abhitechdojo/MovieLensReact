@@ -4,9 +4,10 @@ import {connect} from 'react-redux';
 import DimensionPicker from './controls/DimensionPicker.jsx';
 
 const mapStateToProps = (state) => {
+    console.log(state);
 	return {
-		attributeList : state.attributeList,
-		currentAttribute : state.currentAttribute
+		attributeList : state.DimensionPicker.attributeList,
+		currentAttribute : state.DimensionPicker.currentAttribute
 	}
 }
 
