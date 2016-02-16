@@ -4,7 +4,8 @@ import TableControl from '../containers/TableControlContainer';
 
 const App = () => (
 	<div>
-    	<DimensionPicker dimensionName="Genre"/>
+    	<DimensionPicker dimensionName="genre"/>
+        <DimensionPicker dimensionName="year"/>
     	<TableControl />
 	</div>
 )

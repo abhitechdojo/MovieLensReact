@@ -1,15 +1,18 @@
 const initialState = {
     DimensionPicker: {
         dimenisionName: '',
-        pickerIsLoading: false,
-        pickerError: '',
+        isLoading: false,
+        error: '',
         currentAttribute: '',
         attributeList: []
     },
     DataTable: {
-        tableIsLoading: false,
-        tableData: [],
-        tableError: ''
+        isLoading: false,
+        data: [],
+        error: '',
+        keys: [],
+        columns: [],
+        sortBy: {}
     }    
 }
 

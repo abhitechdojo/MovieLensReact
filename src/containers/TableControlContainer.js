@@ -5,7 +5,10 @@ import TableControlActions from '../actions/TableControlActions'
 
 const mapStateToProps = (state) => {
     return {
-	   tableData: state.DataTable.tableData
+        keys: state.DataTable.keys,
+        columns: state.DataTable.columns,
+        data: state.DataTable.tableData,
+        sortBy: state.DataTable.sortBy
     }
 }
 

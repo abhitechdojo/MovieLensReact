@@ -1,36 +1,31 @@
 import React, {PropTypes} from 'react';
+import {DataTable} from 'react-data-components';
 
-const TableControl = (data) => (
-	<table>
-		<tr>
-			<th>Movie Genre</th>
-			<th>Movie Title</th>
-			<th>Movie Year</th>
-			<th>Avg Rating</th>
-		</tr>
-		<tbody>
-			data.map(row => 
-				<tr>
-					<td>row.genre</td>
-					<td>row.title</td>
-					<td>row.year</td>
-					<td>row.avgrating</td>
-				</tr>
-				)
-		</tbody>
-	</table>
+const TableControl = ({keys, columns, data, sortBy}) => {
+	return (
+		<DataTable 
+			className="container" 
+			keys={keys} //{[ 'name', 'address' ]}
+			columns={columns} 
+			initialData={data} 
+			initialPageLength={5} 
+			initialSortBy= {sortBy} // {{ prop: 'city', order: 'descending' }} 
+			pageLengthOptions={[ 5, 20, 50 ]} 
+		/>
 	)
+}
 
 TableControl.propTypes = {
-	tableData: PropTypes.arrayOf(
-		PropTypes.shape({
-			genre: PropTypes.string.isRequired,
-			title: PropTypes.string.isRequired,
-			year: PropTypes.string.isRequired,
-			avgrating: PropTypes.string.isRequired
-		}
-		).isRequired
-	).isRequired
+		keys: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+		columns: PropTypes.arrayOf(PropTypes.shape({
+			label: PropTypes.string.isRequired,
+			prop: PropTypes.string.isRequired
+		}).isRequired).isRequired,
+		data: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+		sortBy: PropTypes.shape({
+			prop: PropTypes.string.isRequired,
+			order: PropTypes.string.isRequired
+		}).isRequired
 }
 
 export default TableControl;
